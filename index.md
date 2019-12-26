@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Martino's diary
+title: Life is fantastic :D
 tagline: 
-description: Proviamo come va
+description: Pagina per tenere traccia del mio ipertesto mentale
 ---
-[I love you babyyyyyyyyyyyyyyyyyyyyy](https://www.youtube.com/watch?v=nJEKohJloxA)
+[Music](pages/music.html)
