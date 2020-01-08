@@ -13,4 +13,4 @@ Che cosa dice una duna ad un'altra duna ?
 Quando passa qualcheduno ? 
 
 ##### Topa, topa..!?
-{% youtube "https://www.youtube.com/watch?v=x0JjIsBn3ZM" %}
+{::comment}{% youtube "https://www.youtube.com/watch?v=x0JjIsBn3ZM" %}{:/comment}
