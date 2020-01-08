@@ -10,6 +10,7 @@ description: Pagina per tenere traccia del mio ipertesto mentale
 - [I will survive - Gloria Gaynor](https://www.youtube.com/watch?v=gYkACVDFmeg)
 - [These boots are made for walkin' - Nancy Sinatra](https://www.youtube.com/watch?v=SbyAZQ45uww) 
 - [The windmills of your mind - Noel Harrison](https://www.youtube.com/watch?v=WEhS9Y9HYjU)
+- [You gotta move - Rolling Stones cover](https://www.youtube.com/watch?v=mUCoQryE7-k)
 
 #### Italian
 

@@ -8,5 +8,6 @@ description: Pagina per tenere traccia del mio ipertesto mentale
 ---
 
 [Filosofia](pages/filosofia.html)\\
-[Università](pages/university.html)\\
-[Songs](pages/music.html)
+[Università \[Maths\]](pages/university.html)\\
+[Songs](pages/music.html)\\
+{::comment}[cazzate](pages/cazzate.html){:/comment}
