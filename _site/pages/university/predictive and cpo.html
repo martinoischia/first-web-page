@@ -1,0 +1,159 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Predictive distribution and CPO in bayesian statistics</title>
+    <meta name="description" content="Pagina per tenere traccia del mio ipertesto mentale">
+    <meta name="author" content="Martino Ischia">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/twitter/css/kbroman.css" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+
+    <!-- atom & rss feed -->
+    <link href="nil" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="nil" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">pagina personale di Martino</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+
+      <div class="content">
+        
+
+<div class="page-header">
+  <h2>Predictive distribution and CPO in bayesian statistics </h2>
+</div>
+
+<div class="row-fluid">
+  <div class="span12">
+    <p>Predictive distribution and Conditional Predictive Ordinate (CPO), appear in statistics for different 
+reasons, the first one to make predictions on a future observation, the latter for checking the 
+goodness of fit of a model or rather for selecting a model among many. But they share the same mathematics, and that’s
+why they are put together in this article. <br />
+In the following, we are working in a bayesian setting, that is the setting in which not only the observed data
+are assumed to have a random distribution that depends on a set of parameters, but also the parameters themselves
+are randomly distributed according to a prior distribution; in this way, bayesian statisticians “play” around 
+the joint distribution of the data and the parameters.<br />
+Let’s suppose we have observed n data $Y_1 … Y_n$ and we want to derive the distribution of a new observation,
+$Y_{new}$. We denote with $\mathbf{Y}$ the vector of observed data and with $m$ the marginal law of
+this data, that is the law of the data when the parameters of the model get integrated out:
+$$m(mathbf{Y})=\int</p>
+
+<p>For univariate y the function implements both a location and location-scale mixture model. The former assumes</p>
+
+<p><script type="math/tex">\tilde f(y) = \int φ(y; μ, σ^2) \tilde p (d μ) π(σ^2),</script>
+where φ(y; μ, σ^2) is a univariate Gaussian kernel function with mean μ and variance σ^2, and π(σ^2) is an inverse gamma prior. The base measure is specified as</p>
+
+<p>P_0(d μ) = N(d μ; m0, s20),</p>
+
+<p>and σ^2 ~ IGa(a0, b0). Optional hyperpriors for the base measure’s parameters are</p>
+
+<p>(m0,s20) ~ N(m1, s20 / k_1) IGa(a1, b1).</p>
+
+<p>The location-scale mixture model, instead, assumes</p>
+
+<p><script type="math/tex">\tilde f(y) = \int φ(y; μ, σ^2) \tilde p (d μ, d σ^2)</script>
+with normal-inverse gamma base measure</p>
+
+<p>P_0 (d μ, d σ^2) = N(d μ; m0, σ^2 / k0) IGa(d σ^2; a0, b0)</p>
+
+<p>and (optional) hyperpriors</p>
+
+<p>m0 ~ N(m1, σ12 ), k0 ~ Ga(τ1, ζ2), b0 ~ Ga(a1, b1).</p>
+
+<p>Multivariate data</p>
+
+<p>For multivariate y (p-variate) the function implements a location mixture model (with full covariance matrix) and two different location-scale mixture models, with either full or diagonal covariance matrix. The location mixture model assumes
+<script type="math/tex">\tilde f(y) = \int φ_p(y; μ, Σ) \tilde p (d μ) π(Σ)</script>
+where φ_p(y; μ, Σ) is a p-dimensional Gaussian kernel function with mean vector μ and covariance matrix Σ. The prior on Σ is inverse Whishart with parameters Σ_0 and ν_0, while the base measure is</p>
+
+<p>P_0 (d μ) = N(d μ; m0, S0),</p>
+
+<p>with optional hyperpriors</p>
+
+<p>m0 ~ N(m1, S0 / k1), S0 ~ IW(λ1, Λ1).</p>
+
+<p>The location-scale mixture model assumes
+<script type="math/tex">\tilde f(x) = \int φ_p(y; μ, Σ) \tilde p (d μ, d Σ).</script>
+Two possible structures for Σ are implemented, namely full and diagonal covariance. For the full covariance mixture model, the base measure is the normal-inverse Wishart</p>
+
+<p>P_0 (d μ, d Σ) = N(d μ; m0, Σ / k0) IW(d Σ; ν, Σ0),</p>
+
+<p>with optional hyperpriors</p>
+
+<p>m_0 ~ N(m1, S12), k0 ~ Ga(τ1, ζ1), b_0 ~ W(ν1, Σ1).</p>
+
+<p>The second location-scale mixture model assumes a diagonal covariance structure. This is equivalent to write the mixture model as a mixture of products of univariate normal kernels, i.e.
+<script type="math/tex">\tilde f(y) = \int ∏_{r=1}^p φ(y_r; μ_r, σ^2_r) \tilde p (d μ_1,…,d μ_p, d σ_1^2,…,d σ_p^2).</script>
+For this specification, the base measure is assumed defined as the product of p independent normal-inverse gamma distributions, that is
+<script type="math/tex">P_0 = ∏_{r=1}^p P_{0r}</script>
+where
+<script type="math/tex">P_{0r}(d μ_r, d σ_r^2) = N(d μ_r; m_{0j}, σ^2_r / k_{0r}) Ga(d σ^2_r; a_{0r}, b_{0r}).</script>
+Optional hyperpriors can be added, and, for each component, correspond to the set of hyperpriors considered for the univariate location-scale mixture model.</p>
+
+  </div>
+</div>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+<script
+  type="text/javascript"
+  charset="utf-8"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+>
+</script>
+<script
+  type="text/javascript"
+  charset="utf-8"
+  src="https://vincenttam.github.io/javascripts/MathJaxLocal.js"
+>
+</script>
+
+
+      </div>
+      <hr>
+      <footer>
+        <p><small>
+  <!-- start of Karl's footer; modify this part -->
+          <a href="https://creativecommons.org/publicdomain/zero/1.0/"><img src="https://i.creativecommons.org/p/zero/1.0/88x31.png" alt="CC0"/></a> &nbsp;
+          <a href="https://kbroman.org/simple_site/">How to make this simple website</a>
+  <!-- end of Karl's footer; modify this part -->
+        </small></p>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+
