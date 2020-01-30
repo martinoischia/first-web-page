@@ -17,7 +17,7 @@ The following problem is given
 >The question is to find the probability that the particle after three steps is at the central point.
 
 
-![3x3=9](../img/3x3grid.png){:height="300px" width="270px"}{: .center-image }\\
+![3x3=9](../img/3x3grid.png){:height="300px" width="270px" .center-image }\\
 Now, the standard way to approach the problem would be to consider all possible combinations to reach
 the center point, compute their probabilities and summing them, since each one corresponds to a different
 outcome of a random experiment.\\
@@ -41,7 +41,7 @@ for the top-middle and middle-left points and so on.\\
 So the idea is to pass from a Markov chain with nine states to a Markov chain with just three states;
 I will refer to this states as *abstract states*, and will enumerate them like in the following picture\\
 \\
-![3x3](../img/3x3grid2.png){:height="300px" width="270px"}{: .center-image }\\
+![3x3](../img/3x3grid2.png){:height="300px" width="270px" .center-image }\\
 You might wonder if the two representations are equivalent or not, so let's give it some more thoughts.
 When the particle lies in the vertices (abstract state $1$), it can
 only move to a point belonging to abstract state $2$ . Similarly, when it
