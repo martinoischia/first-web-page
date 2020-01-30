@@ -49,22 +49,24 @@
 
 <div class="row-fluid">
   <div class="span12">
-    <p>The following problem is given.<br />
-A particle is placed uniformly at one of the nine points in a $3\times3$ square grid. The particle then
+    <p>The following problem is given</p>
+<blockquote>
+  <p>A particle is placed uniformly at one of the nine points in a $3\times3$ square grid. The particle then
 performs a random walk such that at each step one of the adjacent points (to the right or left, upwards
 or downwards) is chosen with equal probabilities. This means that the particle never remains in a point
 or moves diagonally.<br />
-The question is to find the probability that the particle after three steps is at the central point.<br />
-<img src="../img/3x3grid2.png" alt="3x3" /><br />
+The question is to find the probability that the particle after three steps is at the central point.</p>
+</blockquote>
+
+<p><img src="../img/3x3grid.png" alt="3x3=9" height="300px" width="270px" class="center-image" /><br />
 Now, the standard way to approach the problem would be to consider all possible combinations to reach
 the center point, compute their probabilities and summing them, since each one corresponds to a different
 outcome of a random experiment.<br />
 This leads naturally to a series of matrix multiplications; using the notation that is typical
 of the discrete states Markov chains, of which this is a basic example, I will call $P$ the transition matrix,
-that is the matrix whose element $p_{ij}$ represent the probability for the particle of moving from
+that is the matrix whose element $p_{ij}$ represents the probability for the particle of moving from
 state $i$ to state $j$; here I will enumerate the states
-by row, that is states $1$, $2$, $3$ correspond to the first row of the
-square; as an example, $p_{12}$ is $\frac{1}{2}$ since from state $1$ the particle
+by row, as shown in the picture above; as an example, $p_{12}$ is $\frac{1}{2}$ since from state $1$ the particle
 can only move to state $4$ or state $2$.<br />
 To find the probability of being in state $5$ after three steps I compute $P^3$, corresponding to the transition 
 matrix after three steps, and multiply a row vector of elements all equal to $\frac{1}{9}$ for
@@ -78,12 +80,11 @@ But the symmetry of the problem might suggest us that the point that lies in the
 different from the point that lies in the bottom-right corner. An analogous consideration can be done
 for the top-middle and middle-left points and so on.<br />
 So the idea is to pass from a Markov chain with nine states to a Markov chain with just three states;
-I will refer to this states as <em>abstract states</em>, and will call
-state $1$ when the particle lies in the vertices of the square (one of states $1$,$3$,$7$,$9$);
-state $2$ when the particle lies in the middle points of the external border
-(one of $2$,$4$,$6$,$8$); state $3$ when the particle is in the middle of the square.<br />
+I will refer to this states as <em>abstract states</em>, and will enumerate them like in the following picture<br />
+<br />
+<img src="../img/3x3grid2.png" alt="3x3" height="300px" width="270px" class="center-image" /><br />
 You might wonder if the two representations are equivalent or not, so let’s give it some more thoughts.
-When the particle lies in the vertices (we referred to this state as $1$), it can
+When the particle lies in the vertices (abstract state $1$), it can
 only move to a point belonging to abstract state $2$ . Similarly, when it
 is in abstract state $2$, it will have $\frac{1}{3}$ chances to move to abstract state $3$
 and $\frac{2}{3}$chances to move to abstract state $1$.<br />
@@ -101,7 +102,7 @@ in abstract state $3$ after
 three steps is to start from abstract state $2$ (and this happens with probability $\frac{4}{9}$); conditioning on that, the probability
 that at the third step the particle will move from state $2$ to state $3$ is $\frac{1}{3}$, so that overall I have a probability<br />
 <script type="math/tex">\frac{1}{3}\cdot\frac{4}{9}=\frac{4}{27}</script><br />
-that leads to the same result as before in a much quicker way.</p>
+Therefore, we reached the same conclusion as before in a much more “elegant” way.</p>
 
 
   </div>
