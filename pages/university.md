@@ -23,5 +23,5 @@ of sub-σ-algebras, introducing the concept of regular (version of a) conditiona
 probability is defined as the conditional expectation of an indicator function. For more hints
 have a look [here](https://en.wikipedia.org/wiki/Conditional_probability_distribution#Measure-theoretic_formulation)
 
-#### A (not so) simple Maths [exercise in probability](university/exercise probability.html)
+#### A (not so) simple [exercise in probability](university/exercise probability.html)
 I think it makes a good effort at showing the power of abstraction in Mathematics
