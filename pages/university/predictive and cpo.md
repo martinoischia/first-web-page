@@ -9,81 +9,66 @@ description: Pagina per tenere traccia del mio ipertesto mentale
 
 ---
 
-Predictive distribution and Conditional Predictive Ordinate (CPO), appear in statistics for different 
-reasons, the first one to make predictions on a future observation, the latter for checking the 
+Predictive distributions and Conditional Predictive Ordinates (CPO) appear in statistics for different 
+reasons, the first to make predictions on future observations, the latter for checking the 
 goodness of fit of a model or rather for selecting a model among many. But they share the same mathematics, and that's
 why they are put together in this article. \\
 In the following, we are working in a bayesian setting, that is the setting in which not only the observed data
-are assumed to have a random distribution that depends on a set of parameters, but also the parameters themselves
-are randomly distributed according to a prior distribution; in this way, bayesian statisticians "play" around 
-the joint distribution of the data and the parameters.\\
-Let's suppose we have observed n data $Y_1 ... Y_n$ and we want to derive the distribution of a new observation,
-$Y_{new}$. We denote with $\mathbf{Y}$ the vector of observed data and with $m$ the marginal law of
-this data, that is the law of the data when the parameters of the model get integrated out:
-$$m(mathbf{Y})=\int
+are assumed to be randomly distributed according to a certain law that depends on some
+unknown parameters, but also the parameters themselves
+are randomly distributed according to a prior distribution. In this setting, statisticians "play" around 
+the joint distribution of the data and the parameters. Let's see a little bit how.
+
+##### Notation
+- $\pi(\boldsymbol{\theta})$ prior distribution for the unknown
+ vector of parameters $\boldsymbol{\theta}$
+- $\mathbf{Y}$ vector of observed data
+- $\mathcal{L}(\mathbf{Y}|\boldsymbol{\theta})$ law of the data $\mathbf{Y}$
+given the parameters $\boldsymbol{\theta}$
+- $m(\mathbf{Y})$ the marginal law of
+$\mathbf{Y}$, that is the law of the data when the parameters of the model get integrated out
+$$m(\mathbf{Y})=\int_\boldsymbol\Theta{\mathcal{L}(\boldsymbol{Y}|\boldsymbol{\theta})\pi(\boldsymbol\theta)d\boldsymbol\theta}$$
+
+#### Bayes theorem
+Similarly to the Bayes formula for discrete probabilities that is taught in every course in probability, it is
+possible to prove that the following formula holds
+
+$$ \pi(\boldsymbol{\theta}|\mathbf{Y})= \frac{\mathcal{L}(\mathbf{Y}|\boldsymbol{\theta})\cdot\pi(\boldsymbol{\theta})}
+{m(\mathbf{Y})} $$
+
+$\pi(\boldsymbol{\theta}\|\mathbf{Y})$ is called the posterior distribution of $\boldsymbol\theta$.	
+
+#### Predictions
+Suppose that we have observed $n$ data $Y_1 ... Y_n$, collected in the vector $\mathbf{Y}$, and
+that we are interested in deriving the distribution of a new observation
+$Y_{new}$. Once we have found the distribution, it will be easy to make predictions: for example,
+we can use the mean of the distribution as our guess for the value of $Y_{new}$, or choose another
+criterion we think is the most suitable for the problem.\\
+Using the definition of conditional probability
+
+$$\mathcal{L}(Y_{new}|\mathbf{Y})=\frac{m(Y_{new},\mathbf{Y})}{m(\mathbf{Y})}= $$
+
+$$\frac{\int_\boldsymbol\Theta{\mathcal{L}(Y_{new},\boldsymbol{Y}|\boldsymbol{\theta})\pi(\boldsymbol\theta)d\boldsymbol\theta}}
+{m(\mathbf{Y})}$$
+
+Since the denominator don't depend depend
+on $\boldsymbol\theta$ it can be brought inside the integral.
+In the case that the data are conditionally independent, that is 
+
+$$\mathcal{L}(\mathbf{Y}|\boldsymbol{\theta})= \prod_{i=1}^n{\mathcal{L}(Y_i|\boldsymbol{\theta})}$$
+
+the quantity above becomes
+
+$$\int_\boldsymbol\Theta{\frac{\mathcal{L}(Y_{new}|\boldsymbol\theta)\cdot
+\mathcal{L}(\boldsymbol{Y}|\boldsymbol{\theta})\pi(\boldsymbol\theta)d\boldsymbol\theta}{m(\mathbf{Y})}}$$
+
+Applying Bayes theorem we get 
+
+$$\mathcal{L}(Y_{new}|\mathbf{Y})=\int_\boldsymbol\Theta{\mathcal{L}(Y_{new}|\boldsymbol\theta)\cdot\pi(\boldsymbol{\theta}|\mathbf{Y})d\boldsymbol{\theta}}$$
+
+that is the predictive distribution is the integral of the law of $Y_{new}$ given the parameters $\boldsymbol\theta$ with
+respect to the posterior distribution of $\boldsymbol\theta$.
+
+#### Conditional Predictive Ordinate
 
 
-For univariate y the function implements both a location and location-scale mixture model. The former assumes
-
-$$\tilde f(y) = \int φ(y; μ, σ^2) \tilde p (d μ) π(σ^2),
-$$
-where φ(y; μ, σ^2) is a univariate Gaussian kernel function with mean μ and variance σ^2, and π(σ^2) is an inverse gamma prior. The base measure is specified as
-
-P_0(d μ) = N(d μ; m0, s20),
-
-and σ^2 ~ IGa(a0, b0). Optional hyperpriors for the base measure's parameters are
-
-(m0,s20) ~ N(m1, s20 / k_1) IGa(a1, b1).
-
-The location-scale mixture model, instead, assumes
-
-$$ \tilde f(y) = \int φ(y; μ, σ^2) \tilde p (d μ, d σ^2)
-$$
-with normal-inverse gamma base measure
-
-P_0 (d μ, d σ^2) = N(d μ; m0, σ^2 / k0) IGa(d σ^2; a0, b0)
-
-and (optional) hyperpriors
-
-m0 ~ N(m1, σ12 ), k0 ~ Ga(τ1, ζ2), b0 ~ Ga(a1, b1).
-
-
-Multivariate data
-
-For multivariate y (p-variate) the function implements a location mixture model (with full covariance matrix) and two different location-scale mixture models, with either full or diagonal covariance matrix. The location mixture model assumes
-$$
-\tilde f(y) = \int φ_p(y; μ, Σ) \tilde p (d μ) π(Σ)
-$$
-where φ_p(y; μ, Σ) is a p-dimensional Gaussian kernel function with mean vector μ and covariance matrix Σ. The prior on Σ is inverse Whishart with parameters Σ_0 and ν_0, while the base measure is
-
-P_0 (d μ) = N(d μ; m0, S0),
-
-with optional hyperpriors
-
-m0 ~ N(m1, S0 / k1), S0 ~ IW(λ1, Λ1).
-
-The location-scale mixture model assumes
-$$
-\tilde f(x) = \int φ_p(y; μ, Σ) \tilde p (d μ, d Σ).
-$$
-Two possible structures for Σ are implemented, namely full and diagonal covariance. For the full covariance mixture model, the base measure is the normal-inverse Wishart
-
-P_0 (d μ, d Σ) = N(d μ; m0, Σ / k0) IW(d Σ; ν, Σ0),
-
-with optional hyperpriors
-
-m_0 ~ N(m1, S12), k0 ~ Ga(τ1, ζ1), b_0 ~ W(ν1, Σ1).
-
-The second location-scale mixture model assumes a diagonal covariance structure. This is equivalent to write the mixture model as a mixture of products of univariate normal kernels, i.e.
-$$
-\tilde f(y) = \int ∏_{r=1}^p φ(y_r; μ_r, σ^2_r) \tilde p (d μ_1,…,d μ_p, d σ_1^2,…,d σ_p^2).
-$$
-For this specification, the base measure is assumed defined as the product of p independent normal-inverse gamma distributions, that is
-$$
-P_0 = ∏_{r=1}^p P_{0r}
-$$
-where
-$$
-P_{0r}(d μ_r, d σ_r^2) = N(d μ_r; m_{0j}, σ^2_r / k_{0r}) Ga(d σ^2_r; a_{0r}, b_{0r}).
-$$
-Optional hyperpriors can be added, and, for each component, correspond to the set of hyperpriors considered for the univariate location-scale mixture model.

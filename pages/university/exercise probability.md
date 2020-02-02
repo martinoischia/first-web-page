@@ -21,8 +21,8 @@ The following problem is given
 Now, the standard way to approach the problem would be to consider all possible combinations to reach
 the center point, compute their probabilities and summing them, since each one corresponds to a different
 outcome of a random experiment.\\
-This leads naturally to a series of matrix multiplications; 
-I will use the notation used to describe Markov processes, of which this is a basic example.\\
+This leads naturally to a series of matrix multiplications. 
+Here I will use the notation used to describe Markov processes, of which this is a basic example.\\
 Just to give you an idea, a Markov process is when you have a system that evolves, in a probabilistic
 way, based on the current position, or current state, independently from the positions (states) assumed
 in the past.\\

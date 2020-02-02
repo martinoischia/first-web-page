@@ -11,7 +11,7 @@ description: Pagina per tenere traccia del mio ipertesto mentale
 
 #### Bayesian statistics
 
-[Predictive density and CPO, work in progress](predictive and cpo.NO)
+[Predictive density and CPO (to be finished..)](university/predictive and cpo.html)
 
 #### (Probabilistic) Measure theory
 
