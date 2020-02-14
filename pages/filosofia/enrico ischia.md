@@ -14,3 +14,10 @@ Questa è una minima introduzione, o invito alla lettura, da parte dell'autore; 
 il 6 aprile 2019
 
 {% youtube "https://www.youtube.com/watch?v=JnMMW3R2YRg&t=11s" %}
+\\
+\\
+Questo è l'intervento invece del grande [Angelo tonelli]()
+
+
+
+{% youtube "https://www.youtube.com/watch?v=BynDh8SZrhE" %}
