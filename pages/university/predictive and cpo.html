@@ -4,8 +4,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Predictive distribution and CPO in bayesian statistics</title>
-    <meta name="description" content="Pagina per tenere traccia del mio ipertesto mentale">
+    <title>Predictive distribution and CPO in Bayesian statistics</title>
+    <meta name="description" content="Predictive distribution, Conditional Predictive Ordinate (CPO), log pseudo marginal likelihood (LPML) in Bayesian statistics">
     <meta name="author" content="Martino Ischia">
 
     <!-- Enable responsive viewport -->
@@ -33,7 +33,7 @@
     <div class="navbar">
       <div class="navbar-inner">
         <div class="container-narrow">
-          <a class="brand" href="/">pagina personale di Martino</a>
+          <a class="brand" href="/">Martino's page</a>
         </div>
       </div>
     </div>
@@ -44,19 +44,19 @@
         
 
 <div class="page-header">
-  <h2>Predictive distribution and CPO in bayesian statistics </h2>
+  <h2>Predictive distribution and CPO in Bayesian statistics </h2>
 </div>
 
 <div class="row-fluid">
   <div class="span12">
     <p>Predictive distributions and Conditional Predictive Ordinates (CPO) appear in statistics for different 
 reasons, the first to make predictions on future observations, the latter for checking the 
-goodness of fit of a model or rather for selecting a model among many. But they share the same mathematics, and that’s
+goodness of fit of a model or rather for selecting a model among many. But they share the same mathematics, and that is
 why they are put together in this article. <br />
-In the following, we are working in a bayesian setting, that is the setting in which not only the observed data
-are assumed to be randomly distributed according to a certain law that depends on some
+In the following, we are working in a Bayesian setting, that is the setting in which not only the observed data
+are assumed to be randomly distributed, according to a certain law, which depends on some
 unknown parameters, but also the parameters themselves
-are randomly distributed according to a prior distribution. In this setting, statisticians “play” around 
+are randomly distributed according to a (prior) distribution. In this setting, statisticians “play” around 
 the joint distribution of the data and the parameters. Let’s see a little bit how.</p>
 
 <h5 id="notation">Notation</h5>
@@ -67,9 +67,10 @@ the joint distribution of the data and the parameters. Let’s see a little bit 
   <li>$\mathcal{L}(\mathbf{Y}|\boldsymbol{\theta})$ law of the data $\mathbf{Y}$
 given the parameters $\boldsymbol{\theta}$</li>
   <li>$m(\mathbf{Y})$ the marginal law of
-$\mathbf{Y}$, that is the law of the data when the parameters of the model get integrated out
-<script type="math/tex">m(\mathbf{Y})=\int_\boldsymbol\Theta{\mathcal{L}(\boldsymbol{Y}|\boldsymbol{\theta})\pi(\boldsymbol\theta)d\boldsymbol\theta}</script></li>
+$\mathbf{Y}$, that is the law of the data when the parameters of the model get integrated out</li>
 </ul>
+
+<script type="math/tex; mode=display">m(\mathbf{Y})=\int_\boldsymbol\Theta{\mathcal{L}(\boldsymbol{Y}|\boldsymbol{\theta})\pi(\boldsymbol\theta)d\boldsymbol\theta}</script>
 
 <h4 id="bayes-theorem">Bayes theorem</h4>
 <p>Similarly to the Bayes formula for discrete probabilities that is taught in every course in probability, it is
@@ -78,14 +79,14 @@ possible to prove that the following formula holds</p>
 <script type="math/tex; mode=display">\pi(\boldsymbol{\theta}|\mathbf{Y})= \frac{\mathcal{L}(\mathbf{Y}|\boldsymbol{\theta})\cdot\pi(\boldsymbol{\theta})}
 {m(\mathbf{Y})}</script>
 
-<p>$\pi(\boldsymbol{\theta}|\mathbf{Y})$ is called the posterior distribution of $\boldsymbol\theta$.</p>
+<p>At the numerator above you can see the joint law of the data and the parameter. $\pi(\boldsymbol{\theta}|\mathbf{Y})$ is called the posterior distribution of $\boldsymbol\theta$.</p>
 
 <h4 id="predictions">Predictions</h4>
 <p>Suppose that we have observed $n$ data $Y_1 … Y_n$, collected in the vector $\mathbf{Y}$, and
 that we are interested in deriving the distribution of a new observation
 $Y_{new}$. Once we have found the distribution, it will be easy to make predictions: for example,
-we can use the mean of the distribution as our guess for the value of $Y_{new}$, or choose another
-criterion we think is the most suitable for the problem.<br />
+we can use the mean of the distribution as our guess for the value of $Y_{new}$, or choose the
+criterion which we think is the most suitable for the problem.<br />
 Using the definition of conditional probability</p>
 
 <script type="math/tex; mode=display">\mathcal{L}(Y_{new}|\mathbf{Y})=\frac{m(Y_{new},\mathbf{Y})}{m(\mathbf{Y})}=</script>
@@ -93,11 +94,11 @@ Using the definition of conditional probability</p>
 <script type="math/tex; mode=display">\frac{\int_\boldsymbol\Theta{\mathcal{L}(Y_{new},\boldsymbol{Y}|\boldsymbol{\theta})\pi(\boldsymbol\theta)d\boldsymbol\theta}}
 {m(\mathbf{Y})}</script>
 
-<p>Since the denominator don’t depend depend
+<p>Since the denominator do not depend
 on $\boldsymbol\theta$ it can be brought inside the integral.
 In the case that the data are conditionally independent, that is</p>
 
-<script type="math/tex; mode=display">\mathcal{L}(\mathbf{Y}|\boldsymbol{\theta})= \prod_{i=1}^n{\mathcal{L}(Y_i|\boldsymbol{\theta})}</script>
+<script type="math/tex; mode=display">\mathcal{L}(Y_{new},\mathbf{Y}|\boldsymbol{\theta})= \mathcal{L}(Y_{new}|\boldsymbol\theta)\cdot\prod_{i=1}^n{\mathcal{L}(Y_i|\boldsymbol{\theta})}</script>
 
 <p>the quantity above becomes</p>
 
@@ -111,8 +112,41 @@ In the case that the data are conditionally independent, that is</p>
 <p>that is the predictive distribution is the integral of the law of $Y_{new}$ given the parameters $\boldsymbol\theta$ with
 respect to the posterior distribution of $\boldsymbol\theta$.</p>
 
-<h4 id="conditional-predictive-ordinate">Conditional Predictive Ordinate</h4>
+<h4 id="conditional-predictive-ordinate-and-log-pseudo-marginal-likelihood">Conditional Predictive Ordinate and log pseudo marginal likelihood</h4>
 
+<p>The Conditional Predictive Ordinate (CPO) is based on the idea that is behind cross-validation: it is in fact the likelihood of observing one
+datum $Y_i$ having observed all the remaining data, indicated by $\mathbf{Y_{-i}}$. In formula</p>
+
+<script type="math/tex; mode=display">CPO_i = \mathcal{L}(Y_i|\mathbf{Y_{-i}})</script>
+
+<p>By summing over all the values of $i$ it is possible to get an indication of how coherent our model is with the data that have been observed. More commonly
+it is used the sum of the logarithms of the CPO, the so-called log pseudo marginal likelihood (LPML).</p>
+
+<p>Again, using the definition of conditional probability, $CPO_i$ can be written as</p>
+
+<script type="math/tex; mode=display">CPO_i =\mathcal{L}(Y_{i}|\mathbf{Y_{-i}})=\frac{m(\mathbf{Y})}{m(\mathbf{Y_{-i}})}</script>
+
+<p>Again, with the hypothesis of conditional independence of the data, we get</p>
+
+<script type="math/tex; mode=display">CPO_i =\frac{\int_\boldsymbol\Theta{\prod_{j}{\mathcal{L}(Y_j)}\cdot\pi(\boldsymbol\theta)d\boldsymbol\theta}}{\int_\boldsymbol\Theta{\prod_{j\ne i}{\mathcal{L}(Y_j)}\cdot\pi(\boldsymbol\theta)d\boldsymbol\theta}}</script>
+
+<p>A possible trick to estimate this integrals is considering the reciprocal of the $CPO_i$.</p>
+
+<script type="math/tex; mode=display">\frac{1}{CPO_i}=\frac{\int_\boldsymbol\Theta{\prod_{j\ne i}{\mathcal{L}(Y_j)}\cdot\pi(\boldsymbol\theta)d\boldsymbol\theta}}{\int_\boldsymbol\Theta{\prod_{j}{\mathcal{L}(Y_j)}\cdot\pi(\boldsymbol\theta)d\boldsymbol\theta}}</script>
+
+<p>Again, the quantity at the denominator does not depend on $\boldsymbol\theta$ and can be brought inside the integral. Moreover, multiplying and dividing by
+$\mathcal{L}(Y_i|\boldsymbol\theta)$ and finally applying again Bayes theorem we get</p>
+
+<script type="math/tex; mode=display">\int_\boldsymbol\Theta{\frac{\prod_{j}{\mathcal{L}(Y_j)}\cdot\pi(\boldsymbol\theta)d\boldsymbol\theta}{\mathcal{L}(Y_i|\boldsymbol\theta)\cdot\int_\boldsymbol\Theta{\prod_{j}{\mathcal{L}(Y_j)}\cdot\pi(\boldsymbol\theta)d\boldsymbol\theta}}}=
+\int_\boldsymbol\Theta{\frac{\pi(\boldsymbol\theta|\mathbf{Y})d\boldsymbol\theta}{\mathcal{L}(Y_i|\boldsymbol\theta)}}</script>
+
+<p>At this point, using the Monte Carlo (Markov chain) method, having at disposal $m$ simulated values 
+$\theta_1 … \theta_m$ from the posterior distribution $\pi(\boldsymbol\theta|\mathbf{Y})$ , the estimate $\widehat{CPO}_i$ for the $CPO_i$ will be</p>
+
+<script type="math/tex; mode=display">\widehat{CPO}_i = \frac{1}{\frac{1}{m}\cdot\sum_{j=1}^m{\frac{1}{\mathcal{L}(Y_i|\boldsymbol\theta_j)}}}</script>
+
+<p>Summing over $i$ the logarithm of this quantity allows us to compute the LPML. The value of the LPML is not particularly meaningful <em>per se</em>, but
+if we are asked to choose between two or more possible models, the one with the highest LPML will be the best.</p>
 
   </div>
 </div>
@@ -145,8 +179,9 @@ respect to the posterior distribution of $\boldsymbol\theta$.</p>
       <footer>
         <p><small>
   <!-- start of Karl's footer; modify this part -->
-          <a href="https://creativecommons.org/publicdomain/zero/1.0/"><img src="https://i.creativecommons.org/p/zero/1.0/88x31.png" alt="CC0"/></a> &nbsp;
+          <a href="https://creativecommons.org/publicdomain/zero/1.0/"><img src="https://i.creativecommons.org/p/zero/1.0/88x31.png" alt="CC0"/></a>
           <a href="https://kbroman.org/simple_site/">How to make this simple website</a>
+	    <a href="mailto:" title="Email me"><img src="/pages/img/mail3.png" width="38" height="30" alt="Email me"/>&nbsp;Email me</a>
   <!-- end of Karl's footer; modify this part -->
         </small></p>
       </footer>
