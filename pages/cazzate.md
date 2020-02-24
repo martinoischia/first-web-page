@@ -3,7 +3,7 @@ layout: page
 title: cazzate
 
 tagline:  
-description: odio la mia brevissima memoria, quindi teniamo qui pure le cazzate
+description: La mia memoria è piuttosto breve, quindi teniamo qui pure le cazzate
 
 ---
 Che cosa dice una duna ad un'altra duna ? 

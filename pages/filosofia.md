@@ -3,7 +3,7 @@ layout: page
 title: Filosofia
 
 tagline:  
-description: Pagina per tenere traccia del mio ipertesto mentale
+description: 
 
 ---
 

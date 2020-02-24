@@ -5,7 +5,7 @@ mathjax: true
 title: An exercise in probability
 
 tagline:
-description: simple and beautiful exercise
+description: simple and beautiful exercise in basic probability
 
 ---
 

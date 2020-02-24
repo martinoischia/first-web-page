@@ -3,7 +3,7 @@ layout: page
 title: Enrico Ischia
 
 tagline:  
-description: L'arcipelago
+description: L'arcipelago di Enrico Ischia, curato da Angelo Tonelli, filosofia di vita
 
 ---
 
@@ -11,13 +11,10 @@ description: L'arcipelago
 , lettura indispensabile per i coraggiosi cercatori di verità.\\
 Raccoglie drammi e grandi liriche a tema filosofico.\\
 Questa è una minima introduzione, o invito alla lettura, da parte dell'autore; serata tenutasi ad Arco
-il 6 aprile 2019
-
-{% youtube "https://www.youtube.com/watch?v=JnMMW3R2YRg&t=11s" %}
-\\
-\\
-Questo è l'intervento invece del grande [Angelo tonelli]()
-
-
-
+il 6 aprile 2019.\\
+<br />
+{% youtube "https://www.youtube.com/watch?v=JnMMW3R2YRg&t=11s" %}\\
+<br />
+Questo è l'intervento invece del grande Angelo Tonelli.\\
+<br />
 {% youtube "https://www.youtube.com/watch?v=BynDh8SZrhE" %}
