@@ -23,7 +23,7 @@ production_url : https://martinoischia.github.io
 # (see https://help.github.com/articles/migrating-your-pages-site-from-maruku)
 markdown: kramdown
 plugins: [jekyll-youtube]
-gems:
+plugins: 
 - jekyll-email-protect
 # All Jekyll-Bootstrap specific configurations are namespaced into this hash
 #

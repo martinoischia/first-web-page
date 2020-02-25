@@ -70,7 +70,7 @@ $$\mathcal{L}(Y_{new}|\mathbf{Y})=\int_\boldsymbol\Theta{\mathcal{L}(Y_{new}|\bo
 that is the predictive distribution is the integral of the law of $Y_{new}$ given the parameters $\boldsymbol\theta$ with
 respect to the posterior distribution of $\boldsymbol\theta$.
 
-#### Conditional Predictive Ordinate and log pseudo marginal likelihood 
+#### Conditional Predictive Ordinate and Log Pseudo Marginal Likelihood 
 
 The Conditional Predictive Ordinate (CPO) is based on the idea that is behind leave-one-out cross-validation: it is in fact the likelihood of observing one
 datum $Y_i$ having observed all the remaining data, indicated by $\mathbf{Y_{-i}}$. In formula
@@ -78,7 +78,7 @@ datum $Y_i$ having observed all the remaining data, indicated by $\mathbf{Y_{-i}
 $$CPO_i = \mathcal{L}(Y_i|\mathbf{Y_{-i}})$$
 
 By summing over all the values of $i$ it is possible to get an indication of how coherent our model is with the data that have been observed. More commonly
-it is used the sum of the logarithms of the CPO, the so-called log pseudo marginal likelihood (LPML).
+it is used the sum of the logarithms of the CPO, the so-called Log Pseudo Marginal Likelihood (LPML).
 
 Again, using the definition of conditional probability, $CPO_i$ can be written as
 
