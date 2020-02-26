@@ -28,4 +28,4 @@ probability is defined as the conditional expectation of an indicator function. 
 have a look [here](https://en.wikipedia.org/wiki/Conditional_probability_distribution#Measure-theoretic_formulation)
 
 #### A (not so) simple [exercise in probability](university/exercise probability.html)
-I think it makes a good effort at showing the power of abstraction in Mathematics
+- I think it makes a good effort at showing the power of abstraction in Mathematics
