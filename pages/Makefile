@@ -7,6 +7,7 @@ all:
 	read text
 	git commit -m "$$text"
 	git push origin develop
+	jekyll serve
 	git checkout master
 	cp -r ./_site/* .
 	git add .
