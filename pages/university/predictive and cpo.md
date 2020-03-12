@@ -28,7 +28,7 @@ given the parameters $\boldsymbol{\theta}$
 - $m(\mathbf{Y})$ the marginal law of
 $\mathbf{Y}$, that is the law of the data when the parameters of the model get integrated out
 
-$$m(\mathbf{Y})=\int_\boldsymbol\Theta{\mathcal{L}(\boldsymbol{Y}|\boldsymbol{\theta})\pi(\boldsymbol\theta)d\boldsymbol\theta}$$
+$$m(\mathbf{Y})=\int_\boldsymbol\Theta{\mathcal{L}(\boldsymbol{Y}|\boldsymbol{\theta})\cdot\pi(\boldsymbol\theta)d\boldsymbol\theta}$$
 
 #### Bayes theorem
 Similarly to the Bayes formula for discrete probabilities that is taught in every course in probability, it is
@@ -49,7 +49,7 @@ Using the definition of conditional probability
 
 $$\mathcal{L}(Y_{new}|\mathbf{Y})=\frac{m(Y_{new},\mathbf{Y})}{m(\mathbf{Y})}= $$
 
-$$\frac{\int_\boldsymbol\Theta{\mathcal{L}(Y_{new},\boldsymbol{Y}|\boldsymbol{\theta})\pi(\boldsymbol\theta)d\boldsymbol\theta}}
+$$\frac{\int_\boldsymbol\Theta{\mathcal{L}(Y_{new},\boldsymbol{Y}|\boldsymbol{\theta})\cdot\pi(\boldsymbol\theta)d\boldsymbol\theta}}
 {m(\mathbf{Y})}$$
 
 Since the denominator do not depend

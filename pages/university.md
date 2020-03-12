@@ -29,3 +29,7 @@ have a look [here](https://en.wikipedia.org/wiki/Conditional_probability_distrib
 
 #### A (not so) simple [exercise in probability](university/exercise probability.html)
 - I think it makes a good effort at showing the power of abstraction in Mathematics
+
+#### Other
+- [La matematica delle epidemie (and Maddmaths in general)](http://maddmaths.simai.eu/divulgazione/focus/epidemie-matematica/) (italiano).\\
+- [Polimi-Open-Knoledge courses, I attended "finanza per tutti"](https://www.pok.polimi.it/)
