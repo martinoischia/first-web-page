@@ -31,5 +31,6 @@ have a look [here](https://en.wikipedia.org/wiki/Conditional_probability_distrib
 - I think it makes a good effort at showing the power of abstraction in Mathematics
 
 #### Other
-- [La matematica delle epidemie (and Maddmaths in general)](http://maddmaths.simai.eu/divulgazione/focus/epidemie-matematica/) (italiano).\\
-- [Polimi-Open-Knoledge courses, I attended "finanza per tutti"](https://www.pok.polimi.it/)
+- [La matematica delle epidemie (e il sito Maddmaths in generale)](http://maddmaths.simai.eu/divulgazione/focus/epidemie-matematica/) (italiano).
+
+- [Polimi-Open-Knoledge courses (I attended *Finance for everyone*)](https://www.pok.polimi.it/)
