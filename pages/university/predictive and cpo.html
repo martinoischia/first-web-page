@@ -70,7 +70,7 @@ given the parameters $\boldsymbol{\theta}$</li>
 $\mathbf{Y}$, that is the law of the data when the parameters of the model get integrated out</li>
 </ul>
 
-<script type="math/tex; mode=display">m(\mathbf{Y})=\int_\boldsymbol\Theta{\mathcal{L}(\boldsymbol{Y}|\boldsymbol{\theta})\pi(\boldsymbol\theta)d\boldsymbol\theta}</script>
+<script type="math/tex; mode=display">m(\mathbf{Y})=\int_\boldsymbol\Theta{\mathcal{L}(\boldsymbol{Y}|\boldsymbol{\theta})\cdot\pi(\boldsymbol\theta)d\boldsymbol\theta}</script>
 
 <h4 id="bayes-theorem">Bayes theorem</h4>
 <p>Similarly to the Bayes formula for discrete probabilities that is taught in every course in probability, it is
@@ -91,7 +91,7 @@ Using the definition of conditional probability</p>
 
 <script type="math/tex; mode=display">\mathcal{L}(Y_{new}|\mathbf{Y})=\frac{m(Y_{new},\mathbf{Y})}{m(\mathbf{Y})}=</script>
 
-<script type="math/tex; mode=display">\frac{\int_\boldsymbol\Theta{\mathcal{L}(Y_{new},\boldsymbol{Y}|\boldsymbol{\theta})\pi(\boldsymbol\theta)d\boldsymbol\theta}}
+<script type="math/tex; mode=display">\frac{\int_\boldsymbol\Theta{\mathcal{L}(Y_{new},\boldsymbol{Y}|\boldsymbol{\theta})\cdot\pi(\boldsymbol\theta)d\boldsymbol\theta}}
 {m(\mathbf{Y})}</script>
 
 <p>Since the denominator do not depend
