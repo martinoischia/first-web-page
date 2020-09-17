@@ -70,14 +70,14 @@ given the parameters $\boldsymbol{\theta}$</li>
 $\mathbf{Y}$, that is the law of the data when the parameters of the model get integrated out</li>
 </ul>
 
-<script type="math/tex; mode=display">m(\mathbf{Y})=\int_\boldsymbol\Theta{\mathcal{L}(\boldsymbol{Y}|\boldsymbol{\theta})\cdot\pi(\boldsymbol\theta)d\boldsymbol\theta}</script>
+\[m(\mathbf{Y})=\int_\boldsymbol\Theta{\mathcal{L}(\boldsymbol{Y}|\boldsymbol{\theta})\cdot\pi(\boldsymbol\theta)d\boldsymbol\theta}\]
 
 <h4 id="bayes-theorem">Bayes theorem</h4>
 <p>Similarly to the Bayes formula for discrete probabilities that is taught in every course in probability, it is
 possible to prove that the following formula holds</p>
 
-<script type="math/tex; mode=display">\pi(\boldsymbol{\theta}|\mathbf{Y})= \frac{\mathcal{L}(\mathbf{Y}|\boldsymbol{\theta})\cdot\pi(\boldsymbol{\theta})}
-{m(\mathbf{Y})}</script>
+\[\pi(\boldsymbol{\theta}|\mathbf{Y})= \frac{\mathcal{L}(\mathbf{Y}|\boldsymbol{\theta})\cdot\pi(\boldsymbol{\theta})}
+{m(\mathbf{Y})}\]
 
 <p>At the numerator above you can see the joint law of the data and the parameter. $\pi(\boldsymbol{\theta}|\mathbf{Y})$ is called the posterior distribution of $\boldsymbol\theta$.</p>
 
@@ -89,25 +89,25 @@ we can use the mean of the distribution as our guess for the value of $Y_{new}$,
 criterion which we think is the most suitable for the problem.<br />
 Using the definition of conditional probability</p>
 
-<script type="math/tex; mode=display">\mathcal{L}(Y_{new}|\mathbf{Y})=\frac{m(Y_{new},\mathbf{Y})}{m(\mathbf{Y})}=</script>
+\[\mathcal{L}(Y_{new}|\mathbf{Y})=\frac{m(Y_{new},\mathbf{Y})}{m(\mathbf{Y})}=\]
 
-<script type="math/tex; mode=display">\frac{\int_\boldsymbol\Theta{\mathcal{L}(Y_{new},\boldsymbol{Y}|\boldsymbol{\theta})\cdot\pi(\boldsymbol\theta)d\boldsymbol\theta}}
-{m(\mathbf{Y})}</script>
+\[\frac{\int_\boldsymbol\Theta{\mathcal{L}(Y_{new},\boldsymbol{Y}|\boldsymbol{\theta})\cdot\pi(\boldsymbol\theta)d\boldsymbol\theta}}
+{m(\mathbf{Y})}\]
 
 <p>Since the denominator do not depend
 on $\boldsymbol\theta$ it can be brought inside the integral.
 In the case that the data are conditionally independent, that is</p>
 
-<script type="math/tex; mode=display">\mathcal{L}(Y_{new},\mathbf{Y}|\boldsymbol{\theta})= \mathcal{L}(Y_{new}|\boldsymbol\theta)\cdot\prod_{i=1}^n{\mathcal{L}(Y_i|\boldsymbol{\theta})}</script>
+\[\mathcal{L}(Y_{new},\mathbf{Y}|\boldsymbol{\theta})= \mathcal{L}(Y_{new}|\boldsymbol\theta)\cdot\prod_{i=1}^n{\mathcal{L}(Y_i|\boldsymbol{\theta})}\]
 
 <p>the quantity above becomes</p>
 
-<script type="math/tex; mode=display">\int_\boldsymbol\Theta{\frac{\mathcal{L}(Y_{new}|\boldsymbol\theta)\cdot
-\mathcal{L}(\boldsymbol{Y}|\boldsymbol{\theta})\pi(\boldsymbol\theta)d\boldsymbol\theta}{m(\mathbf{Y})}}</script>
+\[\int_\boldsymbol\Theta{\frac{\mathcal{L}(Y_{new}|\boldsymbol\theta)\cdot
+\mathcal{L}(\boldsymbol{Y}|\boldsymbol{\theta})\pi(\boldsymbol\theta)d\boldsymbol\theta}{m(\mathbf{Y})}}\]
 
 <p>Applying Bayes theorem we get</p>
 
-<script type="math/tex; mode=display">\mathcal{L}(Y_{new}|\mathbf{Y})=\int_\boldsymbol\Theta{\mathcal{L}(Y_{new}|\boldsymbol\theta)\cdot\pi(\boldsymbol{\theta}|\mathbf{Y})d\boldsymbol{\theta}}</script>
+\[\mathcal{L}(Y_{new}|\mathbf{Y})=\int_\boldsymbol\Theta{\mathcal{L}(Y_{new}|\boldsymbol\theta)\cdot\pi(\boldsymbol{\theta}|\mathbf{Y})d\boldsymbol{\theta}}\]
 
 <p>that is the predictive distribution is the integral of the law of $Y_{new}$ given the parameters $\boldsymbol\theta$ with
 respect to the posterior distribution of $\boldsymbol\theta$.</p>
@@ -117,33 +117,33 @@ respect to the posterior distribution of $\boldsymbol\theta$.</p>
 <p>The Conditional Predictive Ordinate (CPO) is based on the idea that is behind leave-one-out cross-validation: it is in fact the likelihood of observing one
 datum $Y_i$ having observed all the remaining data, indicated by $\mathbf{Y_{-i}}$. In formula</p>
 
-<script type="math/tex; mode=display">CPO_i = \mathcal{L}(Y_i|\mathbf{Y_{-i}})</script>
+\[CPO_i = \mathcal{L}(Y_i|\mathbf{Y_{-i}})\]
 
 <p>By summing over all the values of $i$ it is possible to get an indication of how coherent our model is with the data that have been observed. More commonly
 it is used the sum of the logarithms of the CPO, the so-called Log Pseudo Marginal Likelihood (LPML).</p>
 
 <p>Again, using the definition of conditional probability, $CPO_i$ can be written as</p>
 
-<script type="math/tex; mode=display">CPO_i =\mathcal{L}(Y_{i}|\mathbf{Y_{-i}})=\frac{m(\mathbf{Y})}{m(\mathbf{Y_{-i}})}</script>
+\[CPO_i =\mathcal{L}(Y_{i}|\mathbf{Y_{-i}})=\frac{m(\mathbf{Y})}{m(\mathbf{Y_{-i}})}\]
 
 <p>Again, with the hypothesis of conditional independence of the data, we get</p>
 
-<script type="math/tex; mode=display">CPO_i =\frac{\int_\boldsymbol\Theta{\prod_{j}{\mathcal{L}(Y_j)}\cdot\pi(\boldsymbol\theta)d\boldsymbol\theta}}{\int_\boldsymbol\Theta{\prod_{j\ne i}{\mathcal{L}(Y_j)}\cdot\pi(\boldsymbol\theta)d\boldsymbol\theta}}</script>
+\[CPO_i =\frac{\int_\boldsymbol\Theta{\prod_{j}{\mathcal{L}(Y_j)}\cdot\pi(\boldsymbol\theta)d\boldsymbol\theta}}{\int_\boldsymbol\Theta{\prod_{j\ne i}{\mathcal{L}(Y_j)}\cdot\pi(\boldsymbol\theta)d\boldsymbol\theta}}\]
 
 <p>A possible trick to estimate this integrals is considering the reciprocal of the $CPO_i$.</p>
 
-<script type="math/tex; mode=display">\frac{1}{CPO_i}=\frac{\int_\boldsymbol\Theta{\prod_{j\ne i}{\mathcal{L}(Y_j)}\cdot\pi(\boldsymbol\theta)d\boldsymbol\theta}}{\int_\boldsymbol\Theta{\prod_{j}{\mathcal{L}(Y_j)}\cdot\pi(\boldsymbol\theta)d\boldsymbol\theta}}</script>
+\[\frac{1}{CPO_i}=\frac{\int_\boldsymbol\Theta{\prod_{j\ne i}{\mathcal{L}(Y_j)}\cdot\pi(\boldsymbol\theta)d\boldsymbol\theta}}{\int_\boldsymbol\Theta{\prod_{j}{\mathcal{L}(Y_j)}\cdot\pi(\boldsymbol\theta)d\boldsymbol\theta}}\]
 
 <p>Again, the quantity at the denominator does not depend on $\boldsymbol\theta$ and can be brought inside the integral. Moreover, multiplying and dividing by
 $\mathcal{L}(Y_i|\boldsymbol\theta)$ and finally applying again Bayes theorem we get</p>
 
-<script type="math/tex; mode=display">\int_\boldsymbol\Theta{\frac{\prod_{j}{\mathcal{L}(Y_j)}\cdot\pi(\boldsymbol\theta)d\boldsymbol\theta}{\mathcal{L}(Y_i|\boldsymbol\theta)\cdot\int_\boldsymbol\Theta{\prod_{j}{\mathcal{L}(Y_j)}\cdot\pi(\boldsymbol\theta)d\boldsymbol\theta}}}=
-\int_\boldsymbol\Theta{\frac{\pi(\boldsymbol\theta|\mathbf{Y})d\boldsymbol\theta}{\mathcal{L}(Y_i|\boldsymbol\theta)}}</script>
+\[\int_\boldsymbol\Theta{\frac{\prod_{j}{\mathcal{L}(Y_j)}\cdot\pi(\boldsymbol\theta)d\boldsymbol\theta}{\mathcal{L}(Y_i|\boldsymbol\theta)\cdot\int_\boldsymbol\Theta{\prod_{j}{\mathcal{L}(Y_j)}\cdot\pi(\boldsymbol\theta)d\boldsymbol\theta}}}=
+\int_\boldsymbol\Theta{\frac{\pi(\boldsymbol\theta|\mathbf{Y})d\boldsymbol\theta}{\mathcal{L}(Y_i|\boldsymbol\theta)}}\]
 
 <p>At this point, using the Monte Carlo (Markov chain) method, having at disposal $m$ simulated values 
 $\theta_1 … \theta_m$ from the posterior distribution $\pi(\boldsymbol\theta|\mathbf{Y})$ , the estimate $\widehat{CPO}_i$ for the $CPO_i$ will be</p>
 
-<script type="math/tex; mode=display">\widehat{CPO}_i = \frac{1}{\frac{1}{m}\cdot\sum_{j=1}^m{\frac{1}{\mathcal{L}(Y_i|\boldsymbol\theta_j)}}}</script>
+\[\widehat{CPO}_i = \frac{1}{\frac{1}{m}\cdot\sum_{j=1}^m{\frac{1}{\mathcal{L}(Y_i|\boldsymbol\theta_j)}}}\]
 
 <p>Summing over $i$ the logarithm of this quantity allows us to compute the LPML. The value of the LPML is not particularly meaningful <em>per se</em>, but
 if we are asked to choose between two or more possible models, the one with the highest LPML will be the best.</p>
