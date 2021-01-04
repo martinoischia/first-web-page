@@ -24,8 +24,8 @@ for partition estimation, when the parameters of the prior are misspecified.
 , reason for which you need to define the limiting operation when you condition on a
 0 probability event; measure theory "solves" this issue of conditional probability reasoning in terms
 of sub-σ-algebras, introducing the concept of regular (version of a) conditional probability: conditional 
-probability is defined as the conditional expectation of an indicator function. For more hints
-have a look [here](https://en.wikipedia.org/wiki/Conditional_probability_distribution#Measure-theoretic_formulation)
+probability is defined as the conditional expectation of an indicator function.\\
+To clarify concepts more, navigate to [this Wikipedia page](https://en.wikipedia.org/wiki/Conditional_probability_distribution#Measure-theoretic_formulation)
 
 #### A (not so) simple [exercise in probability](university/exercise probability.html)
 - I think it makes a good effort at showing the power of abstraction in Mathematics

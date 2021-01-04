@@ -15,7 +15,8 @@ description: Songs I like
 - [You gotta move - Rolling Stones cover](https://www.youtube.com/watch?v=mUCoQryE7-k)
 - [Can't take my eyes off you - covered by Gloria Gaynor](https://www.youtube.com/watch?v=BT4GIljqr-A)
 - [The rain song - Led Zeppelin live from the DVD "The song remains the same"](https://www.youtube.com/watch?v=CxEu0QN6nzk)
-
+- [Moonlight Mile - Rolling Stones](https://www.youtube.com/watch?v=aGEw5B850a4)
+- [No Woman, No Cry - Bob Marley](https://www.youtube.com/watch?v=IT8XvzIfi4U)
 #### Italian
 
 - [Un'avventura - Lucio Battisti](https://www.youtube.com/watch?v=LGWFlnxS9HI)
