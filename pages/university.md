@@ -31,7 +31,7 @@ To clarify concepts more, navigate to [this Wikipedia page](https://en.wikipedia
 - I think it makes a good effort at showing the power of abstraction in Mathematics
 
 #### Numerical Analysis
-- My [GitHub repository](https://github.com/martinoischia/Anderson_acceleration) for a C++ interface for fixed-point iterations. In particular, it implements
+- My [GitHub repository](https://github.com/martinoischia/Anderson-acceleration) for a C++ interface for fixed-point iterations. In particular, it implements
 the Anderson accelerator strategy and applies it to Finite Elements problems. In the *documents*
 folder you can also find a complete report.
 
